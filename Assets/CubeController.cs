@@ -10,8 +10,12 @@ public class CubeController : MonoBehaviour {
 	// 消滅位置
 	private float deadLine = -10;
 
+	private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start(){
+		//audioをセット
+		audioSource = gameObject.GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -30,7 +34,7 @@ public class CubeController : MonoBehaviour {
 		if(collision.gameObject.tag == "UnityChan"){
 			Debug.Log ("unitychan");
 		} else { 
-			GetComponent<AudioSource> ().volume = 1;
+			audioSource.Play ();
 		}
 	}
 }
